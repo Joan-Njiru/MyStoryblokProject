@@ -1,0 +1,15 @@
+// app/components/page.jsx
+import {
+  storyblokEditable,
+  StoryblokServerComponent,
+} from '@storyblok/react/rsc';
+
+export default function Page({ blok }) {
+  return (
+    <main {...storyblokEditable(blok)} className="min-h-screen">
+      {blok.body?.map((nestedBlok) => (
+        <StoryblokServerComponent blok={nestedBlok} key={nestedBlok._uid} />
+      ))}
+    </main>
+  );
+}

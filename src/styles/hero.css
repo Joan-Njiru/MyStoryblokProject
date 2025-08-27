@@ -1,0 +1,31 @@
+.background_image {
+  background-size: cover;       
+  background-position: center;  
+  background-repeat: no-repeat; 
+  width: 100vw;                 
+  height: 100vh;                
+  position: relative;          
+  display: flex;
+  align-items: center;         
+  justify-content: center;      
+  color: white;                
+  text-align: center;
+}
+.headline h1 {
+  font-size: 3rem;
+  text-shadow: 2px 2px #000;
+}
+.headline p {
+  font-size: 1.5rem;
+  text-shadow: 1px 1px #000;
+}
+.cta {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  padding: 24px 48px;
+  background-color: #eca45f;
+  color: rgb(5, 5, 5);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}

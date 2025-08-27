@@ -1,0 +1,38 @@
+.about {
+  padding: 2rem; 
+  background-color: #f3f4f6;
+  height: 55vh;
+  margin: 2%;
+  border-radius: 4px;
+}
+.container{
+    margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+}
+
+.about_image{
+      width: 50%; 
+}
+.about_image img{
+    width: 500px;
+    height: 550px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+.about .headline {
+  font-size: 1.875rem; 
+  font-weight: bold; 
+  text-align: center; 
+  margin-bottom: 1rem; 
+}
+.content{
+    width: 50%;
+}
+.content.text {
+  font-size: 1.5rem; 
+  color: #374151; 
+  text-align: center; 
+  
+}
+
