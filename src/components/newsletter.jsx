@@ -1,4 +1,3 @@
-
 import { storyblokEditable } from '@storyblok/react/rsc';
 import '../styles/newsletter.css';
 
@@ -6,7 +5,7 @@ export default function Newsletter({ blok }) {
   return (
     <section id="newsletter" className="newsletter" {...storyblokEditable(blok)}>
       <div className="newsletter-container">
-        {blok.title && (
+        {blok.headline && (
           <h3 className="newsletter-title">{blok.headline}</h3>
         )}
         {blok.description && (

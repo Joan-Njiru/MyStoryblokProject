@@ -1,4 +1,3 @@
-// app/components/page.jsx
 import {
   storyblokEditable,
   StoryblokServerComponent,

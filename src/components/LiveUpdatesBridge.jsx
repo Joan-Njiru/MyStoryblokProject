@@ -1,37 +1,37 @@
-// components/LiveUpdatesBridge.jsx
 "use client";
-import { useEffect, useState } from "react";
+
+import { useState, useEffect } from "react";
 import { useStoryblokBridge } from "@storyblok/react";
 
-export default function LiveUpdatesBridge({ story }) {
+export default function LiveUpdatesBridge({ story, children }) {
   const [liveStory, setLiveStory] = useState(story);
 
   useEffect(() => {
-    // Validate story structure before using it
-    if (!story || typeof story !== 'object' || !story.id) {
-      console.error('Invalid story prop:', story);
-      return;
-    }
+    if (!story?.id) return;
 
-    if (typeof window !== "undefined") {
-      const isInEditor = window.location.search.includes('_storyblok');
-      
-      if (isInEditor) {
-        try {
-          useStoryblokBridge(story.id, (newStory) => {
-            // Validate incoming story data
-            if (newStory && newStory.content && typeof newStory.content === 'object') {
-              setLiveStory(newStory);
-            } else {
-              console.error('Invalid story update:', newStory);
-            }
-          });
-        } catch (bridgeError) {
-          console.error('Storyblok bridge error:', bridgeError);
+    
+    if (typeof window !== "undefined" && window.location.search.includes("_storyblok")) {
+      useStoryblokBridge(story.id, (newStory) => {
+        if (newStory?.content) {
+          setLiveStory(newStory);
         }
-      }
+      });
     }
   }, [story]);
 
-  return null;
+
+  if (typeof children === "function") {
+    return children(liveStory);
+  }
+
+
+  return children
+    ? Array.isArray(children)
+      ? children.map((child, i) =>
+          child && child.props
+            ? { ...child, props: { ...child.props, story: liveStory } }
+            : child
+        )
+      : { ...children, props: { ...children.props, story: liveStory } }
+    : null;
 }

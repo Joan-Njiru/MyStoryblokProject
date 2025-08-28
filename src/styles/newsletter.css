@@ -72,7 +72,7 @@
   font-weight: 600;
 }
 
-/* Responsive */
+/* Responsiveness */
 @media (max-width: 600px) {
   .newsletter-form {
     flex-direction: column;

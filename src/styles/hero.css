@@ -1,31 +1,91 @@
+/* styles/hero.css */
+
 .background_image {
-  background-size: cover;       
-  background-position: center;  
-  background-repeat: no-repeat; 
-  width: 100vw;                 
-  height: 100vh;                
-  position: relative;          
+  position: relative;
+  min-height: 100vh; /* full viewport height */
+  background-size: cover;
+  background-position: center;
   display: flex;
-  align-items: center;         
-  justify-content: center;      
-  color: white;                
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  padding: 2rem;
+  color: #fff; /* ensures text is visible on darker images */
 }
+
+.background_image::after {
+  /* dark overlay for better text contrast */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.headline {
+  position: relative; /* so text stays above overlay */
+  z-index: 1;
+  /* max-width: 800px; */
+}
+
 .headline h1 {
-  font-size: 3rem;
-  text-shadow: 2px 2px #000;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Press Start 2P', cursive;
 }
+
 .headline p {
-  font-size: 1.5rem;
-  text-shadow: 1px 1px #000;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-family: 'Raleway', sans-serif; /* softer text */
 }
+
 .cta {
-  margin-top: 20px;
-  font-size: 1.5rem;
-  padding: 24px 48px;
-  background-color: #eca45f;
-  color: rgb(5, 5, 5);
+  background: #ad611a;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.cta:hover {
+  background: #fa3b0b;
+  transform: scale(1.05);
+}
+
+/* ===== Responsive tweaks ===== */
+@media (max-width: 768px) {
+  .headline h1 {
+    font-size: 1.8rem;
+  }
+
+  .headline p {
+    font-size: 1rem;
+  }
+
+  .cta {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .headline h1 {
+    font-size: 1.4rem;
+  }
+
+  .headline p {
+    font-size: 0.9rem;
+  }
+
+  .cta {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
 }
