@@ -72,7 +72,6 @@ grid-template-columns: repeat(1, 1fr);
   .about_image img{
     width: 400px;
     height: 400px;
-    margin-left: 20px;
     border-radius: 20px;
     object-fit: cover;
    
